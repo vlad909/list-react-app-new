@@ -74,7 +74,8 @@
 
 .btn {
     background-color: yellowgreen;
-    width: 60px;
+    width: auto;
     height: 30px;
-    border: none; 
+    border: none;
+    padding: 10px 20px;
 }

@@ -5,8 +5,22 @@ class Lists extends React.Component {
         super(props)
         this.state = {
             n_task: '',
-            tasks: ['task1', 'task2']
+            tasks: ['task1', 'task2'],
+            something: 'not changed'
         }
+        this.setValue = this.setValue.bind(this)
+    }
+
+    componentDidMount() {
+        window.bus.on('yes', (val) => {
+            this.setValue(val)
+        })
+    }
+
+    setValue(val) {
+        this.setState({
+            something: val
+        })
     }
 
     setTaskValue = (e) => {
@@ -28,20 +42,19 @@ class Lists extends React.Component {
         return (
             <div>
                 <div className="create-task">
-                    <input type="text" defaultValue="" placeholder="any task" ref="task" onChange={this.setTaskValue}/>
+                    <input type="text" defaultValue="" placeholder="any task" onChange={this.setTaskValue}/>
                     <button type="button" className="btn" onClick={this.addTask}>Add</button>
                 </div>
                 <div className="table">
+                    {this.state.something}
                     <strong className="strong">List</strong>
                     <ul className="table-left">
                         {tasks}
                     </ul>
                 </div>
             </div>
-
-
         )
     }
 }
 
-export default Lists
+export default Lists;
