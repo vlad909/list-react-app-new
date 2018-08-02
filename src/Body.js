@@ -28,14 +28,15 @@ class Body extends React.Component {
         // const {new_val} = this.state
         return (
             <div className="body-inner">
-                <p>data from child {this.state.lists_data}</p>
-                <input type="text" onChange={this.setNewVal}/>
-                <Lists ref={inst => {
-                    this.child = inst
-                }} val={this.state.new_val} perentCallBack={this.myCallBack}/>
-                <button type="button" className="btn" onClick={() => this.child.setValue(this.state.new_val)}>Parent of
-                    list
-                </button>
+                {/*<p>data from child {this.state.lists_data}</p>*/}
+                {/*<input type="text" onChange={this.setNewVal}/>*/}
+                <Lists
+                    /*ref={inst => {
+                        this.child = inst*/
+                    /*val={this.state.new_val} perentCallBack={this.myCallBack}*//>
+                {/*<button type="button" className="btn" onClick={() => this.child.setValue(this.state.new_val)}>Parent of*/}
+                {/*list*/}
+                {/*</button>*/}
             </div>
         )
     }

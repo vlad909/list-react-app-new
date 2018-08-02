@@ -2,17 +2,17 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Body from './Body.js'
-import ee from 'event-emitter'
+// import ee from 'event-emitter'
 
 class App extends Component {
-    constructor(props) {
-        super(props)
-        window.bus = new ee()
-    }
+    // constructor(props) {
+    //     super(props)
+    //     window.bus = new ee()
+    // }
 
-    emitIt = () => {
-        window.bus.emit('yes', 'doloras')
-    }
+    // emitIt = () => {
+    //     window.bus.emit('yes', 'doloras')
+    // }
 
     render() {
         return (
@@ -23,7 +23,7 @@ class App extends Component {
                 </header>
                 <Body/>
                 <hr/>
-                <button type="button" className="btn" onClick={() => this.emitIt()}>non parent from list</button>
+                {/*<button type="button" className="btn" onClick={() => this.emitIt()}>non parent from list</button>*/}
             </div>
         );
     }

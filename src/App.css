@@ -1,5 +1,6 @@
 .App {
     text-align: center;
+    background-color: #fafafa;
 }
 
 .App-logo {
@@ -43,7 +44,7 @@
 
 .table-left {
     width: 250px;
-    margin: 20px 10px;
+    margin: 20px 10px 5px;
 }
 
 .table-left li {
@@ -60,16 +61,49 @@
 
 .create-task {
     display: flex;
-    width: 250px;
-    justify-content: space-between;
+    width: auto;
+    justify-content: flex-start;
     margin: 20px 45px;
     text-align: left;
-    align-items: flex-end;
+    /*align-items: flex-end;*/
 }
 
-.create-task input {
-    height: 20px;
+.table input {
+    height: 25px;
+    width: 190px;
+    margin: 0 10px 0 50px;
+}
 
+.table .btn {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.m-t-20 {
+    margin-top: 20px;
+}
+
+ul {
+    margin: 0;
+}
+
+li p, li button {
+    margin: 5px 0;
+}
+
+li button {
+    display: none !important;
+}
+
+li:hover button {
+    display: inline-block !important;
+}
+
+.create-task button {
+    margin: 0 25px;
 }
 
 .btn {
@@ -77,5 +111,5 @@
     width: auto;
     height: 30px;
     border: none;
-    padding: 10px 20px;
+    /*padding: 10px 20px;*/
 }
