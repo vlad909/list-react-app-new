@@ -41,7 +41,8 @@ class Lists extends React.Component {
                     id: 3,
                     name: 'group3'
                 }],
-            current_group: 1
+            current_group: 1,
+            editable_id: null
         }
         this.setValue = this.setValue.bind(this)
     }
@@ -93,15 +94,72 @@ class Lists extends React.Component {
         })
     }
 
+    delTask(index) {
+        let list = this.state.tasks
+        list.splice(index, 1)
+        this.setState({
+            tasks: list
+        })
+    }
+
+    setEditTask(id) {
+        this.setState({
+            editable_id: id
+        })
+    }
+
+    editTask(index) {
+        let items = this.state.tasks,
+            item = items[index]
+        item.name = this.state.n_task
+        console.log(items, 'before')
+        items.splice(index, 1, item)
+        console.log(items, 'after')
+        this.setState({
+            tasks: items,
+            editable_id: null
+        })
+
+    }
+
     render() {
+        let edit = this.state.editable_id
         let tasks = this.state.tasks.map((item, index) => {
                 return (
                     item.gid === this.state.current_group ?
-                        <li className="d-flex justify-content-between align-items-center" key={index}><p>{item.id}. {item.name}</p>
-                            <button type="button" className="btn btn-danger"
-                            >-
-                            </button>
-                        </li> : ''
+                        (<li className="d-flex justify-content-between align-items-center" key={index}>
+                            {item.id !== edit || edit === null ? (
+                                <div style={{width: '100%'}}
+                                     className="d-flex flex-row justify-content-between align-items-center">
+                                    <p>{item.id}. {item.name}</p>
+                                    <div>
+                                        <button type="button" className="btn btn-success"
+                                                onClick={() => this.setEditTask(item.id)}>~
+                                        </button>
+                                        <button type="button" className="btn btn-danger"
+                                                onClick={() => this.delTask(index, item.id)}
+                                        >-
+                                        </button>
+                                    </div>
+                                </div>
+                            ) : (
+                                <div style={{width: '100%'}} className="d-flex justify-content-between align-items-center">
+                                    <input style={{margin: '10px 0', width: '150px'}} type="text"
+                                           onChange={this.setTaskValue}/>
+                                    <div>
+                                        <button type="button" className="btn btn-success"
+                                                onClick={() => this.editTask(index)}>v
+                                        </button>
+                                        <button type="button" className="btn btn-danger" onClick={() => {
+                                            this.setState({
+                                                editable_id: null
+                                            })
+                                        }}>x
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+                        </li>) : ('')
                 )
             }),
             groups = this.state.group_list.map((item, index) => {

@@ -51,6 +51,7 @@
     text-align: left;
     border: 1px solid gray;
     list-style-type: none;
+    height: 40px;
 }
 
 .strong {
