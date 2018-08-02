@@ -33,6 +33,10 @@ class Lists extends React.Component {
         })
     }
 
+    someFn = (e) => {
+        this.props.perentCallBack(e.target.value)
+    }
+
     render() {
         let tasks = this.state.tasks.map((item, index) => {
             return (
@@ -42,6 +46,11 @@ class Lists extends React.Component {
         return (
             <div>
                 <div className="create-task">
+                    <div>
+                        <span>here</span>
+                        <input type="text" onChange={this.someFn}/>
+                    </div>
+                    {/*<p>data from props: {this.props.val}</p>*/}
                     <input type="text" defaultValue="" placeholder="any task" onChange={this.setTaskValue}/>
                     <button type="button" className="btn" onClick={this.addTask}>Add</button>
                 </div>
