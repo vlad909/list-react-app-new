@@ -1,4 +1,5 @@
 import React from 'react'
+import Stars from './stars'
 
 class Lists extends React.Component {
     constructor(props) {
@@ -9,22 +10,26 @@ class Lists extends React.Component {
                 {
                     id: 0,
                     gid: 1,
-                    name: 'task1 for g1'
+                    name: 'task1 for g1',
+                    stars: 1
                 },
                 {
                     id: 1,
                     gid: 1,
-                    name: 'task1 for g1'
+                    name: 'task1 for g1',
+                    stars: 2
                 },
                 {
                     id: 2,
                     gid: 2,
-                    name: 'task2 for g2'
+                    name: 'task2 for g2',
+                    stars: 3
                 },
                 {
                     id: 3,
                     gid: 3,
-                    name: 'task3 for g3'
+                    name: 'task3 for g3',
+                    stars: 4
                 }
             ],
             new_group: '',
@@ -42,7 +47,8 @@ class Lists extends React.Component {
                     name: 'group3'
                 }],
             current_group: 1,
-            editable_id: null
+            editable_id: null,
+            starred_id: -1
         }
         this.setValue = this.setValue.bind(this)
     }
@@ -112,14 +118,22 @@ class Lists extends React.Component {
         let items = this.state.tasks,
             item = items[index]
         item.name = this.state.n_task
-        console.log(items, 'before')
         items.splice(index, 1, item)
-        console.log(items, 'after')
         this.setState({
             tasks: items,
-            editable_id: null
+            editable_id: null,
+            n_task: null
         })
+    }
 
+    setCount = (val, index) => {
+        let items = this.state.tasks,
+            item = items[index]
+        item.stars = val
+        items.splice(index, 1, item)
+        this.setState({
+            tasks: items
+        })
     }
 
     render() {
@@ -159,7 +173,7 @@ class Lists extends React.Component {
                                     </div>
                                 </div>
                             )}
-                        </li>) : ('')
+                            <Stars setCount={this.setCount} index={index} stars={item.stars}/></li>) : ('')
                 )
             }),
             groups = this.state.group_list.map((item, index) => {

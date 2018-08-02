@@ -43,7 +43,7 @@
 }
 
 .table-left {
-    width: 250px;
+    width: 450px;
     margin: 20px 10px 5px;
 }
 
@@ -71,7 +71,7 @@
 
 .table input {
     height: 25px;
-    width: 190px;
+    width: 375px;
     margin: 0 10px 0 50px;
 }
 
@@ -98,6 +98,10 @@ li p, li button {
 li button {
     display: none !important;
 }
+
+/*li:after {*/
+/*content: '\2605';*/
+/*}*/
 
 li:hover button {
     display: inline-block !important;

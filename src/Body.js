@@ -12,17 +12,17 @@ class Body extends React.Component {
         }
     }
 
-    setNewVal = (e) => {
-        this.setState({
-            new_val: e.target.value
-        })
-    }
-
-    myCallBack = (data) => {
-        this.setState({
-            lists_data: data
-        })
-    }
+    // setNewVal = (e) => {
+    //     this.setState({
+    //         new_val: e.target.value
+    //     })
+    // }
+    //
+    // myCallBack = (data) => {
+    //     this.setState({
+    //         lists_data: data
+    //     })
+    // }
 
     render() {
         // const {new_val} = this.state
