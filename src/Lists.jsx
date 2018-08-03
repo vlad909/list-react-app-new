@@ -50,19 +50,12 @@ class Lists extends React.Component {
             editable_id: null,
             starred_id: -1
         }
-        this.setValue = this.setValue.bind(this)
     }
 
     componentDidMount() {
         // window.bus.on('yes', (val) => {
         //     this.setValue(val)
         // })
-    }
-
-    setValue(val) {
-        this.setState({
-            something: val
-        })
     }
 
     setTaskValue = (e) => {
@@ -77,7 +70,8 @@ class Lists extends React.Component {
             name: this.state.n_task
         }
         this.setState({
-            tasks: [...list, item]
+            tasks: [...list, item],
+            n_task: ''
         })
     }
 
