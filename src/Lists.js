@@ -136,6 +136,17 @@ class Lists extends React.Component {
         })
     }
 
+    delGroup(index) {
+        let groups = this.state.group_list,
+            id = groups[index].id,
+            items = this.state.tasks.filter(e => e.gid !== id)
+        groups.splice(index, 1)
+        this.setState({
+            group_list: groups,
+            tasks: items
+        })
+    }
+
     render() {
         let edit = this.state.editable_id
         let tasks = this.state.tasks.map((item, index) => {
@@ -178,11 +189,18 @@ class Lists extends React.Component {
             }),
             groups = this.state.group_list.map((item, index) => {
                 return (
-                    <li onClick={() => {
+                    <li className="d-flex justify-content-between align-items-center" onClick={() => {
                         this.setState({
                             current_group: item.id
                         })
-                    }} key={index}>{item.id}. {item.name}</li>
+                    }} key={index}>
+
+                        <p>{item.id}. {item.name}</p>
+                        <button type="button" className="btn btn-danger"
+                                onClick={() => this.delGroup(index)}
+                        >-
+                        </button>
+                    </li>
                 )
             })
         return (

@@ -4,7 +4,7 @@
 }
 
 .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 1.5s linear;
     height: 80px;
 }
 
@@ -95,13 +95,13 @@ li p, li button {
     margin: 5px 0;
 }
 
+li p:hover, li span:hover {
+    cursor: pointer;
+}
+
 li button {
     display: none !important;
 }
-
-/*li:after {*/
-/*content: '\2605';*/
-/*}*/
 
 li:hover button {
     display: inline-block !important;
