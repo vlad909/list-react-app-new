@@ -90,7 +90,8 @@ class Lists extends React.Component {
             name: this.state.new_group
         }
         this.setState({
-            group_list: [...list, item]
+            group_list: [...list, item],
+            new_group: ''
         })
     }
 
