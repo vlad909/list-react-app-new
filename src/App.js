@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Body from './Body.js'
+import Body from './Body.jsx'
 // import ee from 'event-emitter'
 
 class App extends Component {
